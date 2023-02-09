@@ -1,0 +1,57 @@
+
+    <h1 class="mt20">Questions of <i>{{qTitle}}</i></h1>
+
+<div class="bootstrap-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="container">
+
+                <div class="container text-center mt15">
+                    <button mat-raised-button color="accent" [routerLink]="'/admin/add-question/' + qId+'/'+qTitle ">Add Question</button>
+                </div>
+            </div>
+
+            <mat-card *ngFor="let q of questions; let i = index" class="mt20">
+                <mat-card-content>
+
+                    <p>
+                        <strong>Q {{i+1}}</strong> <span class="ml20" [innerHTML]="q.content"></span>
+                    </p>
+
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><b>1)&nbsp;</b>{{ q.option1 }}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>2)&nbsp;</b>{{ q.option2 }}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>3)&nbsp;</b>{{ q.option3 }}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>4)&nbsp;</b>{{ q.option4 }}</p>
+                            </div>
+
+                        </div>
+                        <mat-divider></mat-divider>
+                        <p class="mt20"><b>Correct Answer: </b>{{ q.answer }}</p>
+                    </div>
+
+                    <!-- {{ q | json }} -->
+
+                </mat-card-content>
+
+                <mat-card-actions>
+                    <button mat-button (click)="deleteQuestion(q.quesId)" color="warn" class="mr20" >Delete</button>
+                    <button mat-button color="primary" >Update</button>
+                
+
+
+                </mat-card-actions>
+
+            </mat-card>
+        </div>
+    </div>
+</div>

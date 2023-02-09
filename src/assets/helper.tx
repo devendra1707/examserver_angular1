@@ -1,0 +1,11 @@
+// alert(qid);
+this._quiz.deleteQuiz(qid).subscribe(
+  (data: any) => {
+    this.quizzes = this.quizzes.filter((quiz)=>quiz.qid != qid)
+  
+  Swal.fire('Success',"Quiz Deleted Successfully",'success');
+},
+(error) => {
+  console.log(error);
+  Swal.fire('Error !! ', "Error in Deleting Quiz", 'error');
+});

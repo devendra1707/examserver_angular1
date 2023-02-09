@@ -1,0 +1,52 @@
+<!-- <mat-card>
+    <mat-card-header>
+        <mat-card-title>Quizzes</mat-card-title>
+    </mat-card-header>
+</mat-card> -->
+
+<mat-card class="mt10 mr20 ml20" *ngFor="let q of quizzes">
+    <!-- {{q | json}} -->
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>
+            {{ q.title }}
+        </mat-card-title>
+        <mat-card-subtitle>
+            {{ q.category.title }}
+        </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <p> {{q.description}} </p>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button [routerLink]="'/admin/view-questions/' + q.qid+'/'+q.title " mat-flat-button color="accent">
+            Questions
+        </button>
+        <!-- <button routerLink="'/admin/view-questions/' + q.qid '/' + q.title" mat-flat-button color="accent">
+        Questions
+    </button> -->
+        <button mat-stroked-button color="accent" class="ml20">
+            Max Marks: {{ q.maxMarks }}
+        </button>
+        <button mat-stroked-button color="accent" class="ml20">
+            Questions: {{ q.numberOfQuestions }}
+        </button>
+        <button [routerLink]="'/admin/quiz/' + q.qid" mat-flat-button color="accent" class="ml20">
+            Update
+        </button>
+        <button mat-flat-button color="accent" class="ml20">
+            Attempts
+        </button>
+        <button mat-flat-button color="warn" class="ml20" (click)="deleteQuiz(q.qid)">
+            Delete
+        </button>
+    </mat-card-actions>
+</mat-card>
+
+<div class="container text-center mt20">
+    <button routerLink="/admin/add-quiz" mat-raised-button color="accent" class="ml20">
+        Add New Quiz
+    </button>
+</div>
