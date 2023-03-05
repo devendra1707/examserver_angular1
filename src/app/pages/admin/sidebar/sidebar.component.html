@@ -23,9 +23,9 @@
         <button mat-list-item routerLink="/admin/add-quiz">
             <mat-icon mat-list-icon>add</mat-icon>Add Quiz
         </button>
-        <button mat-list-item routerLink="/admin/profile">
+        <button mat-list-item (click)="logout()" *ngIf="isLogIn">
             <mat-icon mat-list-icon>logout</mat-icon>Logout
         </button>
-        
+    
     </mat-action-list>
 </mat-card>
